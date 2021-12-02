@@ -1,10 +1,14 @@
 const outpot = document.querySelector('.current-operand'),
-    current = document.querySelector('.previous-operand'),
-    number = document.querySelectorAll('.number'),
-    operators = document.querySelectorAll('.operation'),
-    AC = document.getElementById('clear'),
-    Dot = document.getElementById('dot'),
-    equal = document.getElementById('equal')
+current = document.querySelector('.previous-operand'),
+number = document.querySelectorAll('.number'),
+operators = document.querySelectorAll('.operation'),
+AC = document.getElementById('clear'),
+Dot = document.getElementById('dot'),
+equal = document.getElementById('equal')
+
+let numbers = []
+let operator
+let result = 0
 
 number.forEach(number => {
     number.addEventListener("click", getNumber)
@@ -30,28 +34,19 @@ function getNumber() {
     outpot.textContent += this.textContent
 }
 
-
-let numbers = []
-let operator
-
 function getOperator() {
 
     if (numbers[0]) {
         getresult()
     }
-  
     else if (outpot.textContent != '') {
-       
         numbers.push(Number(outpot.textContent))
-       
     }
     operator = this.textContent
     current.textContent = outpot.textContent += operator;
     outpot.textContent = ''
-  
 }
 
-let result = 0
 function getresult() {
     numbers.push(Number(outpot.textContent))
     current.textContent += outpot.textContent
@@ -83,5 +78,4 @@ function getresult() {
     numbers[0] = result;
     numbers.pop()
     operator = ''
-
 }
