@@ -24,7 +24,6 @@ AC.addEventListener('click', () => {
 
 Dot.addEventListener('click', () => {
     if (outpot.textContent.includes('.')) {
-        Dot.disabled = true
         return
     } else {
         outpot.textContent += '.'
@@ -33,9 +32,6 @@ Dot.addEventListener('click', () => {
 
 equal.addEventListener('click', getresult)
 
-// if (!outpot.textContent || !current.textContent) {
-//     equal.disabled = true
-// }
 function getNumber() {
     outpot.textContent += this.textContent
 }
@@ -48,17 +44,10 @@ function getOperator() {
 
     if (numbers[0]) {
         getresult()
-        
         outpot.textContent = result
-
-        // current.textContent = outpot.textContent + this.textContent
-        // outpot.textContent = ''
     }
     else if (outpot.textContent) {
         operator = this.textContent
-        // if (operator) {
-        //     operator = this.textContent
-        // }
         numbers.push(Number(outpot.textContent))
         current.textContent = outpot.textContent += operator;
         outpot.textContent = ''
@@ -67,17 +56,6 @@ function getOperator() {
 
 let result = 0
 function getresult() {
-    // if (!outpot.textContent || !current.textContent) {
-    //     // equal.disabled = true
-    //     numbers = []
-    //     result = 0
-    //     return
-    // }
-
-    // if (!outpot.textContent || !current.textContent) {
-    //     equal.disabled = true
-    // }
-
     numbers.push(Number(outpot.textContent))
     current.textContent += outpot.textContent
 
@@ -91,8 +69,7 @@ function getresult() {
         case '÷':
             if (numbers[1] == 0) {
                 result = "You Can't devide by zero"
-                // numbers = [];
-                current.textContent = ''
+                current.textContent = ""
             } else {
                 result = numbers[0] / numbers[1]
             }
@@ -105,28 +82,6 @@ function getresult() {
             break;
     }
 
-    // if (!(current.textContent || outpot.textContent) || !result) {
-    //     equal.disabled = true
-    // }
-    // if (number[0]) {
-        //     if (numbers.length = 2) {
-            //         equal.disabled = false
-            //         console.log('ena');
-            //     } else if (numbers.length < 2){
-                //         equal.disabled = true
-                //         console.log('dis');
-                //     }
-                
-                // }
-    if (numbers[0]) {        
-        current.textContent = result + operator
-        // outpot.textContent = ''
-        console.log(result);
-        console.log(current.textContent);
-        console.log(outpot.textContent);
-        console.log(operator);
-        console.log(numbers);
-    }
     outpot.textContent = result
     numbers = [];
     operator = ''
