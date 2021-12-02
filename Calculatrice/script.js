@@ -20,11 +20,9 @@ AC.addEventListener('click', () => {
     return
 })
 Dot.addEventListener('click', () => {
-    if (outpot.textContent.includes('.')) {
-        return
-    } else {
+    if (!outpot.textContent.includes('.')) {
         outpot.textContent += '.'
-    }
+        }
 })
 equal.addEventListener('click', getresult)
 
@@ -39,10 +37,7 @@ let operator
 function getOperator() {
 
     if (numbers[0]) {
-        // operator = this.textContent
         getresult()
-        // current.textContent = outpot.textContent += this.textContent
-        // outpot.textContent = ''
     }
   
     else if (outpot.textContent != '') {
