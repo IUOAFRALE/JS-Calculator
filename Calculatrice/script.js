@@ -6,8 +6,6 @@ const outpot = document.querySelector('.current-operand'),
     Dot = document.getElementById('dot'),
     equal = document.getElementById('equal')
 
-
-
 number.forEach(number => {
     number.addEventListener("click", getNumber)
 })
@@ -21,7 +19,6 @@ AC.addEventListener('click', () => {
     numbers = []
     return
 })
-
 Dot.addEventListener('click', () => {
     if (outpot.textContent.includes('.')) {
         return
@@ -29,7 +26,6 @@ Dot.addEventListener('click', () => {
         outpot.textContent += '.'
     }
 })
-
 equal.addEventListener('click', getresult)
 
 function getNumber() {
@@ -43,15 +39,21 @@ let operator
 function getOperator() {
 
     if (numbers[0]) {
+        // operator = this.textContent
         getresult()
-        outpot.textContent = result
+        // current.textContent = outpot.textContent += this.textContent
+        // outpot.textContent = ''
     }
-    else if (outpot.textContent) {
-        operator = this.textContent
+  
+    else if (outpot.textContent != '') {
+       
         numbers.push(Number(outpot.textContent))
-        current.textContent = outpot.textContent += operator;
-        outpot.textContent = ''
+       
     }
+    operator = this.textContent
+    current.textContent = outpot.textContent += operator;
+    outpot.textContent = ''
+  
 }
 
 let result = 0
@@ -83,10 +85,8 @@ function getresult() {
     }
 
     outpot.textContent = result
-    numbers = [];
+    numbers[0] = result;
+    numbers.pop()
     operator = ''
 
 }
-
-
-
